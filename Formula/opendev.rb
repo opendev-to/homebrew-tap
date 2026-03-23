@@ -5,21 +5,21 @@ class OpendevCli < Formula
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/opendev-to/opendev/releases/download/v0.1.0/opendev-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "d97c45b25d9afb512f60ca641ceabdb00919b81c0fb64e136c4c072700ad7094"
+      sha256 "399be7d5bc98ea7839c9ad5031363e5db0b834724e442f4b9fa259fea24e6d9b"
     end
     if Hardware::CPU.intel?
       url "https://github.com/opendev-to/opendev/releases/download/v0.1.0/opendev-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "32d6aca7a548a8219f66aa2f8a323873470c13fe449acfa3131f76f4462acd8d"
+      sha256 "2ff3eca53211b546c280658e0cff1ba424350e7452239a4f374ab42878ecd2bb"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/opendev-to/opendev/releases/download/v0.1.0/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "0831bbc1388a35a21c7accfade6d21ad2bf046fe10723aa5d5f65265fdf326b2"
+      sha256 "b2dd99bd30ab72107f74f8bd4baf2a3f78c4e2de049d7c6303eab23ed2cdcf36"
     end
     if Hardware::CPU.intel?
       url "https://github.com/opendev-to/opendev/releases/download/v0.1.0/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "4a2814e764eb4ee6265c4da8cd7b5bdb137d60ea4930c13ccfd2de0a8d0312a3"
+      sha256 "62819deca6c9649f9d9a6f50d3b5372e12a4c87a5c27455d0b78a9eb6c72e31d"
     end
   end
   license "MIT"
