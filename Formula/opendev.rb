@@ -1,4 +1,4 @@
-class OpendevCli < Formula
+class Opendev < Formula
   desc "Binary entry point for the OpenDev CLI"
   homepage "https://github.com/opendev-to/opendev"
   version "0.1.1"
