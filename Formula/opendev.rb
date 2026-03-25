@@ -1,25 +1,25 @@
 class OpendevCli < Formula
   desc "Binary entry point for the OpenDev CLI"
   homepage "https://github.com/opendev-to/opendev"
-  version "0.1.0"
+  version "0.1.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.0/opendev-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "1d7f3834e337a23f3a8837dba56c3445c31a6c9f9ceab24508ecd2e7a755d285"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.1/opendev-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "d9acb4567e2818c3e6076bcd1fe2d901926ae2ba3cc1b64aaca85c8c9e54b3b8"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.0/opendev-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "0f7b4e7c3e8f5ee1a4c49f7c1746bf3670713ded3996224121c9eff83a0f8729"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.1/opendev-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "039fe084bcc61225136f766b1218a6072888a972fd38e97e64b6bdb846af88c7"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.0/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "0bc1adb2ace9205527dc3ae58730c31ad9cf45c504af43fd17e7dfff3d86e592"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.1/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "d45ebaf8e53af5ee2688b79fcd959ea6854f81882eab7af852d17867bc60d173"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.0/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "e15ad1f8ab9364c625c45260449f6ac4c4f6bd7cced7ad78f06caf09e99ca184"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.1/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "1c3a5bd014c05f3e2df69050c186ac9683687ae94ec2f1b3e17e20014584fafb"
     end
   end
   license "MIT"
