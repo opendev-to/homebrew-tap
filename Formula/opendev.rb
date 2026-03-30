@@ -1,25 +1,32 @@
 class Opendev < Formula
   desc "Binary entry point for the OpenDev CLI"
   homepage "https://github.com/opendev-to/opendev"
-  version "0.1.4"
+  version "0.1.6"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.4/opendev-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "b0df744b980546e60d6493823b1537b771636552206e859cc3852b061409ad5a"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.6/opendev-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "57fb3eef2d2e2526b488935e059ccb0fbe6a2a8c2265e7ffa6b66a86bc3cfa1d"
+
+  resource "microsandbox" do
+    on_arm do
+      url "https://github.com/superradcompany/microsandbox/releases/download/v0.3.3/microsandbox-darwin-aarch64.tar.gz"
+      sha256 "f5d10af7b7ee7bb9f3b81bb0daeca8276e05aa1660cd653935f338795c6d19ec"
+    end
+  end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.4/opendev-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "616379135091c87cbe0157032df5b1f6770a55dbaa9884d62cc43caa70c9817f"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.6/opendev-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "c248f2cd5c7c73ebebf68589875e37df5f4f0e24755e04957988564e5140a78c"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.4/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "4fdafadeef932e61362a1681b16618b08c7ed690cca13115b425c68529165afb"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.6/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "c7542260b640a6bd34ca2ca453806db4adee13473b2ebdc2358060e87294af8e"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.4/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "a0ac42a7c3c10cae9629e7d168d10c3dddc12f93916c3b767ecdffd131bf82d0"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.6/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "e5a2360cd767ece2adf131a324c658cb4230a24d81809c6f1a8c117c772f4a62"
     end
   end
   license "MIT"
@@ -50,15 +57,31 @@ class Opendev < Formula
   def install
     if OS.mac? && Hardware::CPU.arm?
       bin.install "opendev"
+    resource("microsandbox").stage do
+      (libexec/"msb/bin").install Dir["bin/*"]
+      (libexec/"msb/lib").install Dir["lib/*"]
+    end
     end
     if OS.mac? && Hardware::CPU.intel?
       bin.install "opendev"
+    resource("microsandbox").stage do
+      (libexec/"msb/bin").install Dir["bin/*"]
+      (libexec/"msb/lib").install Dir["lib/*"]
+    end
     end
     if OS.linux? && Hardware::CPU.arm?
       bin.install "opendev"
+    resource("microsandbox").stage do
+      (libexec/"msb/bin").install Dir["bin/*"]
+      (libexec/"msb/lib").install Dir["lib/*"]
+    end
     end
     if OS.linux? && Hardware::CPU.intel?
       bin.install "opendev"
+    resource("microsandbox").stage do
+      (libexec/"msb/bin").install Dir["bin/*"]
+      (libexec/"msb/lib").install Dir["lib/*"]
+    end
     end
 
     install_binary_aliases!
