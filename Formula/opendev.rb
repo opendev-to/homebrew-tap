@@ -5,7 +5,7 @@ class Opendev < Formula
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/opendev-to/opendev/releases/download/v0.1.6/opendev-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "57fb3eef2d2e2526b488935e059ccb0fbe6a2a8c2265e7ffa6b66a86bc3cfa1d"
+      sha256 "cf5d44b07ba76991d536c509932800a92a064921e3bab2aa2a95535bce9e45a7"
 
   resource "microsandbox" do
     on_arm do
@@ -16,17 +16,17 @@ class Opendev < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/opendev-to/opendev/releases/download/v0.1.6/opendev-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "c248f2cd5c7c73ebebf68589875e37df5f4f0e24755e04957988564e5140a78c"
+      sha256 "1eeb4bcc9d5e85d99497b1cdbea85026f6e189ad3228771fd43bc5d1d462b6a3"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/opendev-to/opendev/releases/download/v0.1.6/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "c7542260b640a6bd34ca2ca453806db4adee13473b2ebdc2358060e87294af8e"
+      sha256 "747e2532abc6dae619eb7f4e151ca5374c8a408446eeb536af65f35a66150631"
     end
     if Hardware::CPU.intel?
       url "https://github.com/opendev-to/opendev/releases/download/v0.1.6/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "e5a2360cd767ece2adf131a324c658cb4230a24d81809c6f1a8c117c772f4a62"
+      sha256 "3b7dc8b35dfbda0344ddcc653677a2fd8b6eeab6ed863680c997a049a5b76b68"
     end
   end
   license "MIT"
