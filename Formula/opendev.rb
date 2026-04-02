@@ -1,11 +1,11 @@
 class Opendev < Formula
   desc "Binary entry point for the OpenDev CLI"
   homepage "https://github.com/opendev-to/opendev"
-  version "0.1.7"
+  version "0.1.8"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.7/opendev-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "7dfe8fc0855be7e5a8df870c4463349115e54585c460041f7a9d5feaddc64969"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.8/opendev-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "679e1b89f9a37e27927af519d0d6b01d0cec9227aeb1ca379a0722f55915b942"
 
   resource "microsandbox" do
     on_arm do
@@ -15,18 +15,18 @@ class Opendev < Formula
   end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.7/opendev-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "f52ae5c48c83663520633a2303921b0785f6d69c2c91aa04a9b2936e1188a34c"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.8/opendev-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "a47eb1d46bec72a29e5b9df46525b6f77a1a6d12367b6a8fcf23d9ac646cfddb"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.7/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "75b5d83a07687b8f634ec379183d55a04d7f33357440aace2df979cdca257b86"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.8/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "17508e599a1ecb7b76664cf218c8ec5ee80a2d89c4ae81059fc9bc91daccde7f"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.7/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "232e9d9b2775bb4e9977ac8f65a50bdcc1dcef12fe36adc2a97dc8ac61a52583"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.8/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "a8134ec1626c7631677a90d2cfd20f558e55733541e4383d16b1da1d2d6bc37f"
     end
   end
   license "MIT"
