@@ -1,32 +1,34 @@
 class Opendev < Formula
-  desc "Binary entry point for the OpenDev CLI"
-  homepage "https://github.com/opendev-to/opendev"
-  version "0.1.8"
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.8/opendev-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "679e1b89f9a37e27927af519d0d6b01d0cec9227aeb1ca379a0722f55915b942"
-
   resource "microsandbox" do
-    on_arm do
-      url "https://github.com/superradcompany/microsandbox/releases/download/v0.3.3/microsandbox-darwin-aarch64.tar.gz"
-      sha256 "f5d10af7b7ee7bb9f3b81bb0daeca8276e05aa1660cd653935f338795c6d19ec"
+    on_macos do
+      on_arm do
+        url "https://github.com/superradcompany/microsandbox/releases/download/v0.3.3/microsandbox-darwin-aarch64.tar.gz"
+        sha256 "f5d10af7b7ee7bb9f3b81bb0daeca8276e05aa1660cd653935f338795c6d19ec"
+      end
     end
   end
+
+  desc "Binary entry point for the OpenDev CLI"
+  homepage "https://github.com/opendev-to/opendev"
+  version "0.1.9"
+  if OS.mac?
+    if Hardware::CPU.arm?
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.9/opendev-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "6b50c2daf1801e912adda8350a6e7c77f62eb87cd5171729711d1fd1282e29b8"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.8/opendev-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "a47eb1d46bec72a29e5b9df46525b6f77a1a6d12367b6a8fcf23d9ac646cfddb"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.9/opendev-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "c48de7c3191aed5fe7bea93c76657aabf053ac5bd18d34b7e7f69cd60b24ccb0"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.8/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "17508e599a1ecb7b76664cf218c8ec5ee80a2d89c4ae81059fc9bc91daccde7f"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.9/opendev-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "1ebe17046805c3fc8d52258bce9fa5590b797ddd0480bef32c92c01ee8c07061"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/opendev-to/opendev/releases/download/v0.1.8/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "a8134ec1626c7631677a90d2cfd20f558e55733541e4383d16b1da1d2d6bc37f"
+      url "https://github.com/opendev-to/opendev/releases/download/v0.1.9/opendev-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "a64752cd4fa34265c2c777191ee7bec5f9e896d750ea95a3118b25dd332bf524"
     end
   end
   license "MIT"
@@ -57,30 +59,38 @@ class Opendev < Formula
   def install
     if OS.mac? && Hardware::CPU.arm?
       bin.install "opendev"
-    resource("microsandbox").stage do
-      (libexec/"msb/bin").install Dir["bin/*"]
-      (libexec/"msb/lib").install Dir["lib/*"]
+    if OS.mac? && Hardware::CPU.arm?
+      resource("microsandbox").stage do
+        (libexec/"msb/bin").install Dir["bin/*"]
+        (libexec/"msb/lib").install Dir["lib/*"]
+      end
     end
     end
     if OS.mac? && Hardware::CPU.intel?
       bin.install "opendev"
-    resource("microsandbox").stage do
-      (libexec/"msb/bin").install Dir["bin/*"]
-      (libexec/"msb/lib").install Dir["lib/*"]
+    if OS.mac? && Hardware::CPU.arm?
+      resource("microsandbox").stage do
+        (libexec/"msb/bin").install Dir["bin/*"]
+        (libexec/"msb/lib").install Dir["lib/*"]
+      end
     end
     end
     if OS.linux? && Hardware::CPU.arm?
       bin.install "opendev"
-    resource("microsandbox").stage do
-      (libexec/"msb/bin").install Dir["bin/*"]
-      (libexec/"msb/lib").install Dir["lib/*"]
+    if OS.mac? && Hardware::CPU.arm?
+      resource("microsandbox").stage do
+        (libexec/"msb/bin").install Dir["bin/*"]
+        (libexec/"msb/lib").install Dir["lib/*"]
+      end
     end
     end
     if OS.linux? && Hardware::CPU.intel?
       bin.install "opendev"
-    resource("microsandbox").stage do
-      (libexec/"msb/bin").install Dir["bin/*"]
-      (libexec/"msb/lib").install Dir["lib/*"]
+    if OS.mac? && Hardware::CPU.arm?
+      resource("microsandbox").stage do
+        (libexec/"msb/bin").install Dir["bin/*"]
+        (libexec/"msb/lib").install Dir["lib/*"]
+      end
     end
     end
 
